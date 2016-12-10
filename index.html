@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+    <title>API(s)</title>
+    <link rel='stylesheet' href='styles/reset.css'>
+    <link rel='stylesheet' href='styles/main.css'>
+</head>
+<body>
+
+<script type="text/javascript" src="javascript/shake.js"></script>
+<script>  
+    //listen to shake event
+    var shakeEvent = new Shake({threshold: 15});
+    var audio;
+    shakeEvent.start();
+    window.addEventListener('shake', function(){
+        audio = new Audio('shame.mp3');
+		audio.play();
+    }, false);
+
+    //stop listening
+    function stopShake(){
+        shakeEvent.stop();
+        audio.stop();
+    }
+
+    //check if shake is supported or not.
+    if(!("ondevicemotion" in window)){alert("Not Supported");}
+</script>
+    
+</body>
+</html>
